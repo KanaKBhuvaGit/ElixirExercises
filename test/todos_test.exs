@@ -3,6 +3,6 @@ defmodule TodosTest do
   doctest Todos
 
   test "greets the world" do
-    assert Todos.hello() == :world
+    assert Todos.hello_world() == "Hello World"
   end
 end
