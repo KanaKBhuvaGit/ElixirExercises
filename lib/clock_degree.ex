@@ -1,4 +1,4 @@
-defmodule ClockDegree do
+defmodule ElixirExercises.ClockDegree do
   require Logger
 
   @moduledoc """
@@ -37,14 +37,14 @@ defmodule ClockDegree do
   def getHourHandDegree(hours, minutes) when minutes == 60, do: getHourHandDegree(hours, 0)
 
   def getHourHandDegree(hours, minutes) do
-    Logger.info("Hours: #{hours} and Minutes: #{minutes}")
+    # Logger.info("Hours: #{hours} and Minutes: #{minutes}")
     (hours * 60 + minutes) * 0.5
   end
 
   @doc """
     Calculate minute hand degree
   """
-  def getMinuteHandDegree(_hours, minutes) when is_integer(minutes),
+  def getMinuteHandDegree(minutes) when not is_integer(minutes),
     do: "Only interger value allowed in minutes"
 
   def getMinuteHandDegree(minutes) when minutes < 0,
@@ -57,15 +57,15 @@ defmodule ClockDegree do
 
   def getMinuteHandDegree(minutes) when minutes == 60, do: 0
 
-  def(getMinuteHandDegree(minutes)) do
-    Logger.info("Minutes: #{minutes}")
+  def getMinuteHandDegree(minutes) do
+    # Logger.info("Minutes: #{minutes}")
     minutes * 6
   end
 
   @doc """
     For future use: Calculate second hand degree
   """
-  def getSecondHandDegree(seconds) when is_integer(seconds),
+  def getSecondHandDegree(seconds) when not is_integer(seconds),
     do: "Only interger value allowed in seconds"
 
   def getSecondHandDegree(seconds) when seconds < 0,
@@ -79,7 +79,7 @@ defmodule ClockDegree do
   def getSecondHandDegree(seconds) when seconds == 60, do: 0
 
   def getSecondHandDegree(seconds) do
-    Logger.info("Seconds: #{seconds}")
+    # Logger.info("Seconds: #{seconds}")
     seconds * 6
   end
 end
