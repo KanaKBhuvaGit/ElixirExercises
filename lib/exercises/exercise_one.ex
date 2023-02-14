@@ -1,4 +1,4 @@
-defmodule ExerciseOne do
+defmodule Exercises.ExerciseOne do
   @list [
     33,
     20,

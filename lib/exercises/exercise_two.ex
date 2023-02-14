@@ -1,4 +1,4 @@
-defmodule ExerciseTwo do
+defmodule Exercises.ExerciseTwo do
   # alias Combination
 
   def calculate do
