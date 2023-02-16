@@ -17,6 +17,14 @@ defmodule Anagrams do
     |> Enum.sort()
   end
 
+  def deranged_anagram?(base, candidate) do
+    with true <- anagram?(base, candidate) do
+      Enum.all?(Enum.with_index(String.codepoints(base)), fn {x, i} ->
+        String.at(candidate, i) !== x
+      end)
+    end
+  end
+
   def find(file) do
     File.read!(file)
     |> String.split()

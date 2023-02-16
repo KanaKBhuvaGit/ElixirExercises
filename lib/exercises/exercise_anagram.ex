@@ -18,4 +18,10 @@ defmodule Exercises.ExerciseAnagram do
       Anagrams.anagram?("angel", word)
     end)
   end
+
+  def have_deranged_anagram() do
+    Enum.filter(~w(hello world zombies pants angle galen glean lange angel galne), fn word ->
+      Anagrams.deranged_anagram?("angel", word)
+    end)
+  end
 end
