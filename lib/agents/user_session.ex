@@ -1,4 +1,4 @@
-defmodule UserSession do
+defmodule ElixirExercises.Agents.UserSession do
   def test_module_task(arg) do
     arg
   end
