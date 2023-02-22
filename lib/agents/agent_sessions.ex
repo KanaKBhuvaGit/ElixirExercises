@@ -13,12 +13,23 @@ defmodule ElixirExercises.Agents.AgentSessions do
   # It is set automatically based on the :start value and it is rarely changed in practice.
   alias ElixirExercises.Agents.UserSession
   # @name :sessions
-  @name {:via, Registry, {ElixirExercises.Registry, "sessions"}}
+  @name {:via, Registry, {Registry.ElixirExercises, "sessions"}}
   # Agents are a simple abstraction around state.
 
   # Often in Elixir there is a need to share or store state that must be accessed from different processes or by the same process at different points in time.
 
   # The Agent module provides a basic server implementation that allows state to be retrieved and updated via a simple API.
+  @doc """
+  Default values
+  :id -> Agents.SessionAgent {any}
+  :start -> {Agents.SessionAgent, :start_link, [args]}
+  :restart -> :permanent {:permanent, :temporary, :transient}
+  :shutdown -> {:worker => 5_000} or {:supervisor => :infinity}
+  :type -> :worker {:worker, :supervisor}
+  :modules -> a list of modules used by hot code upgrade mechanisms to determine which processes are using certain modules.
+  It is typically set to the callback module of behaviours like GenServer, Supervisor, and such.
+  It is set automatically based on the :start value and it is rarely changed in practice.
+  """
   def child_spec(_arg) do
     %{
       id: ElixirExercises.Agents.AgentSessions,

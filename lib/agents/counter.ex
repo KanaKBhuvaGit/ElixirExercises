@@ -1,7 +1,7 @@
 defmodule ElixirExercises.Agents.Counter do
   use Agent
 
-  @name {:via, Registry, {ElixirExercises.Registry, "counter"}}
+  @name {:via, Registry, {Registry.ElixirExercises, "counter"}}
   @initial_value 0
 
   def start_link(_initial_value) do

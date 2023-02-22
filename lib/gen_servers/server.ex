@@ -1,12 +1,13 @@
-defmodule KeyVal.Server do
+defmodule ElixirExercises.GenServers.Server do
   use GenServer
+  alias ElixirExercises.GenServers.Store
 
   def start do
     GenServer.start(__MODULE__, nil)
   end
 
   def init(_) do
-    {:ok, KeyVal.Store.new()}
+    {:ok, Store.new()}
   end
 
   def put(pid, key, value) do
@@ -22,14 +23,14 @@ defmodule KeyVal.Server do
   end
 
   def handle_call({:get, key}, _, state) do
-    {:reply, KeyVal.Store.get(state, key), state}
+    {:reply, Store.get(state, key), state}
   end
 
   def handle_cast({:put, key, value}, state) do
-    {:noreply, KeyVal.Store.put(state, key, value)}
+    {:noreply, Store.put(state, key, value)}
   end
 
   def handle_cast({:del, key}, state) do
-    {:noreply, KeyVal.Store.del(state, key)}
+    {:noreply, Store.del(state, key)}
   end
 end

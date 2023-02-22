@@ -1,5 +1,6 @@
-defmodule KeyVal.Manager do
+defmodule ElixirExercises.GenServers.Manager do
   use GenServer
+  alias ElixirExercises.GenServers.Server
 
   def start do
     GenServer.start(__MODULE__, nil, name: __MODULE__)
@@ -19,7 +20,7 @@ defmodule KeyVal.Manager do
         {:reply, server, state}
 
       :error ->
-        {:ok, pid} = KeyVal.Server.start()
+        {:ok, pid} = Server.start()
         {:reply, pid, Map.put(state, store_name, pid)}
     end
   end

@@ -1,4 +1,4 @@
-defmodule KeyVal.Store do
+defmodule ElixirExercises.GenServers.Store do
   def new() do
     %{}
   end

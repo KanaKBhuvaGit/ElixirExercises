@@ -1,4 +1,4 @@
-defmodule IotDevice do
+defmodule ElixirExercises.GenServers.IotDevice do
   use GenServer
 
   def start_link(opts) do
